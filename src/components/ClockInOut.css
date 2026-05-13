@@ -1,0 +1,173 @@
+/* ClockInOut — Minimalist Light Theme */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tickIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.clock-container {
+  animation: fadeUp 0.4s ease both;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Clock digits ───────────────────────────────── */
+.clock-display {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ── Cards ──────────────────────────────────────── */
+.clock-card {
+  background: #ffffff;
+  border: 1px solid var(--border, #ede9f4);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.06);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.clock-card:hover {
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+.clock-card--success {
+  border-color: rgba(5, 150, 105, 0.25);
+  background: rgba(5, 150, 105, 0.02);
+}
+
+.clock-card--danger {
+  border-color: rgba(220, 38, 38, 0.2);
+  background: rgba(220, 38, 38, 0.02);
+}
+
+/* ── Camera frame ───────────────────────────────── */
+.camera-frame {
+  aspect-ratio: 16 / 9;
+  background: #f5f3ff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.camera-frame video,
+.camera-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Buttons ────────────────────────────────────── */
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: #7c3aed;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+}
+.btn-primary:hover {
+  background: #6d28d9;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-success {
+  background: #059669;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.25);
+}
+.btn-success:hover {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.25);
+}
+.btn-danger:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: #f5f3ff;
+  color: #6b6375;
+  border: 1px solid #ede9f4;
+}
+.btn-ghost:hover {
+  background: #ede9f4;
+  color: #1a1025;
+}
+
+/* ── Status badges ──────────────────────────────── */
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.badge--pending {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+.badge--done-green {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+.badge--done-red {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* ── Time mono display ──────────────────────────── */
+.time-display {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  animation: tickIn 0.15s ease;
+}
+
+/* ── Divider ────────────────────────────────────── */
+.divider-v {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, #ede9f4, transparent);
+}
+
+/* ── Duration block ─────────────────────────────── */
+.duration-pill {
+  background: linear-gradient(135deg, #f5f3ff 0%, #faf5ff 100%);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 16px;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .clock-card { border-radius: 12px; }
+  .btn { font-size: 13px; padding: 9px 16px; }
+}
